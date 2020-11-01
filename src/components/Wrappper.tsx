@@ -14,7 +14,7 @@ export const Wrapper: React.FC<WrapperProps> = ({ children, variant }) => {
             maxW={variant === 'small'? '400px' : '800px'}
             w="100%"
             p="8"
-            bgImage="linear-gradient(to bottom, #5ee7df 0%, #b490ca 100%)">
+            bgImage="linear-gradient(to bottom, #b1e4e1 0%, #dec0f1 100%)">
             {children}
         </Box>
     );
