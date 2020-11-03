@@ -7,9 +7,9 @@ import { useRegisterMutation } from '../generated/graphql';
 import { toErrorMap } from '../utils/toErrorMap';
 import { useRouter } from 'next/router';
 
-interface registerProps {}
+interface registerProps { }
 
-const Register: React.FC<registerProps> = ({}) => {
+const Register: React.FC<registerProps> = ({ }) => {
 	const router = useRouter();
 	const [, register] = useRegisterMutation()
 	return (
@@ -18,14 +18,14 @@ const Register: React.FC<registerProps> = ({}) => {
 				initialValues={{ username: '', password: '' }}
 				onSubmit={async (values, { setErrors }) => {
 					const response = await register(values);
-					if(response.data?.register.errors) {
+					if (response.data?.register.errors) {
 						setErrors(toErrorMap(response.data.register.errors));
 					} else if (response.data?.register.user) {
 						router.push("/");
 					}
 				}}
 			>
-				{({isSubmitting}) => (
+				{({ isSubmitting }) => (
 					<Form>
 						<InputField
 							name='username'
@@ -45,8 +45,16 @@ const Register: React.FC<registerProps> = ({}) => {
 							variantColor='blue'
 							isLoading={isSubmitting}
 							mt={4}
+							_hover={{
+								bg: [
+								  "green.100",
+								  "green.100",
+								  "green.600",
+								  "green.600",
+								],
+							  }}
 						>
-								Register
+							Register
 							</Button>
 					</Form>
 				)}
