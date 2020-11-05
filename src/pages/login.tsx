@@ -1,11 +1,13 @@
 import React from 'react';
-import { Formik, Form } from 'formik';
-import { Wrapper } from '../components/Wrappper';
-import { InputField } from '../components/InputField';
 import { Box, Button } from '@chakra-ui/core';
-import { useLoginMutation } from '../generated/graphql';
-import { toErrorMap } from '../utils/toErrorMap';
+import { Form, Formik } from 'formik';
+import { withUrqlClient } from 'next-urql';
 import { useRouter } from 'next/router';
+import { InputField } from '../components/InputField';
+import { Wrapper } from '../components/Wrappper';
+import { useLoginMutation } from '../generated/graphql';
+import { createUrqlClient } from '../utils/createUrqlClient';
+import { toErrorMap } from '../utils/toErrorMap';
 
 interface loginProps { }
 
@@ -55,4 +57,4 @@ const Login: React.FC<loginProps> = ({ }) => {
     );
 };
 
-export default Login;
+export default withUrqlClient(createUrqlClient)(Login);
