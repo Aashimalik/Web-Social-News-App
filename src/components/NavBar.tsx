@@ -1,4 +1,4 @@
-import { Box, Link, Flex, Button } from '@chakra-ui/core';
+import { Box, Link, Flex, Button, Heading } from '@chakra-ui/core';
 import NextLink from 'next/link';
 import { useMeQuery, useLogoutMutation } from '../generated/graphql';
 import { isServer } from '../utils/isServer';
@@ -22,21 +22,22 @@ export const NavBar: React.FC<NavBarProps> = ({ }) => {
     body = (
       <>
         <NextLink href='/login'>
-          <Link color='white' mr={2}>Login</Link>
+          <Link color='white' mr={2} fontSize="xl">Login</Link>
         </NextLink>
         <NextLink href='/register'>
-          <Link color='white'>Register</Link>
+          <Link color='white' fontSize="xl">Register</Link>
         </NextLink>
       </>
     );
     // user is logged in
   } else {
     body = (
-      <Flex>
-        <Box mr={2}>{data.me.username}</Box>
+      <Flex color="#FFF">
+        <Box mr={2} fontSize="xl">{data.me.username}</Box>
         <Button onClick={() => logout()}
           isLoading={logoutFetching}
           variant="link"
+          variantColor="#FFF"
         >
           Logout
         </Button>
@@ -44,7 +45,12 @@ export const NavBar: React.FC<NavBarProps> = ({ }) => {
     );
   }
   return (
-    <Flex bg='red.500' p={4}>
+    <Flex bg='blue.500' p={4}>
+      <Flex align="center" mr={5} color="#FFFF">
+        <Heading as="h1" size="lg" letterSpacing={"-.1rem"} color="#FFFF">
+          Social Web App
+        </Heading>
+      </Flex>
       <Box ml={'auto'}>
         {body}
       </Box>
