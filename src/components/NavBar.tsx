@@ -45,7 +45,7 @@ export const NavBar: React.FC<NavBarProps> = ({ }) => {
     );
   }
   return (
-    <Flex bg='blue.500' p={4}>
+    <Flex bg='blue.500' p={4} zIndex={2} position="sticky" top={0}>
       <Flex align="center" mr={5} color="#FFFF">
         <Heading as="h1" size="lg" letterSpacing={"-.1rem"} color="#FFFF">
           Social Web App

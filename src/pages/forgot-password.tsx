@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Text, Box } from '@chakra-ui/core';
 import { withUrqlClient } from 'next-urql';
-import { Wrapper } from '../components/Wrappper';
+import { Wrapper } from '../components/Wrapper';
 import { Formik, Form } from 'formik';
 import { InputField } from '../components/InputField';
 import { createUrqlClient } from '../utils/createUrqlClient';
