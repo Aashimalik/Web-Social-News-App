@@ -5,12 +5,13 @@ export type WrapperVariant = "small" | "regular";
 
 interface WrapperProps {
     variant?: WrapperVariant,
+    height?: Boolean,
 }
 
-export const Wrapper: React.FC<WrapperProps> = ({ children, variant }) => {
+export const Wrapper: React.FC<WrapperProps> = ({ children, variant, height }) => {
     return (
         <Box
-            height="100vh"
+            height={height ? "100vh": "100%"}
             display="flex"
             justifyContent="center"
             alignItems="center"

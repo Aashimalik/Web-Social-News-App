@@ -16,7 +16,7 @@ const Login: React.FC<loginProps> = ({ }) => {
   const router = useRouter();
   const [, login] = useLoginMutation()
   return (
-    <Wrapper variant='small'>
+    <Wrapper variant='small' height>
       <Text as="h1" fontSize="3xl" mb={5} fontWeight="bolder" textAlign="center">
         Social App Login
       </Text>
